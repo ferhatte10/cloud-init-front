@@ -11,4 +11,4 @@ services:
    env_file:
      - ./app/.env
    environment:
-      - API_URL=http://${BACKEND_IP}:${BACKEND_PORT}
+      - API_URL=http://${BACKEND_IP}:3000
