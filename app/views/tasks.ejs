@@ -34,7 +34,7 @@
     }
 
     function update_task(id, value,username) {
-        fetch(`api/task/${id}`, {
+        fetch(`<%=API_URL%>/api/task/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -60,7 +60,7 @@
     function delete_task(id, all=false) {
         if (all) {
             if (confirm("Are you sure you want to delete all tasks?")) {
-                fetch(`api/task`, {
+                fetch(`<%=API_URL%>api/task`, {
                     method: "DELETE"
                 }).then((response) => {
                     return response.json()
@@ -72,7 +72,7 @@
             }
         } else {
             if (confirm("Are you sure you want to delete this task?")) {
-                fetch(`api/task/${id}`, {
+                fetch(`<%=API_URL%>/api/task/${id}`, {
                     method: "DELETE"
                 }).then((response) => {
                     return response.json()
@@ -88,7 +88,7 @@
 <main>
  <div class="ui segment">
      <div class="text-center pt-3 pb-2">
-         <img src="/logoImages/check1.webp"
+         <img src="<%=API_URL%>/logoImages/check1.webp"
               alt="Check" width="60">
          <h2 class="my-4">Task List</h2>
      </div>
