@@ -1,7 +1,7 @@
 services: 
- # front-end:
- front:
-   container_name: front
+ # web app:
+ web-app:
+   container_name: web-app
    build: ./app
    security_opt:
      - no-new-privileges:true
@@ -10,5 +10,9 @@ services:
      - 80:80
    env_file:
      - ./app/.env
-   environment:
-      - API_URL=http://192.168.100.24:3000
+   networks:
+     - my-network
+
+networks:
+  my-network:
+    driver: bridge
